@@ -1,3 +1,4 @@
+export LANG="en_US.UTF-8"
 alias ls='ls -kGF'
 alias gp="git push origin HEAD"
 alias gg="git pull --rebase"
@@ -5,6 +6,8 @@ alias gs="git status"
 alias ga="git add"
 alias gc="git commit"
 alias gac="git commit -a"
+alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
 
 # MacPorts Installer addition on 2009-03-18_at_10:48:32: adding an appropriate PATH variable for use with MacPorts.
 export PATH=$HOME/bin:/opt/local/bin:/opt/local/sbin:$PATH
