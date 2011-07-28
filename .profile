@@ -28,4 +28,5 @@ if [ -f /opt/local/etc/bash_completion ]; then
 fi
 export COPYFILE_DISABLE
 export COPY_EXTENDED_ATTRIBUTES_DISABLE
+[[ -s "/Users/timon/.rvm/scripts/rvm" ]] && source "/Users/timon/.rvm/scripts/rvm"
 
