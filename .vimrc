@@ -75,4 +75,5 @@ function! s:SetupSnippets()
     call ExtractSnips("~/.vim/snippets/html", "xhtml")
     call ExtractSnips("~/.vim/snippets/html", "php")
 endfunction
+set fileencodings=ucs-bom,utf-8,cp1251
 
