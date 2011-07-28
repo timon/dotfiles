@@ -5,13 +5,13 @@ unless defined? ETC_IRBRC_LOADED
 
   # Require RubyGems by default.
   require 'rubygems'
-  
+
   # Activate auto-completion.
   require 'irb/completion'
-  
+
   # Use the simple prompt if possible.
-#  IRB.conf[:PROMPT_MODE] = :SIMPLE if IRB.conf[:PROMPT_MODE] == :DEFAULT
-  
+  # IRB.conf[:PROMPT_MODE] = :SIMPLE if IRB.conf[:PROMPT_MODE] == :DEFAULT
+
   # Setup permanent history.
   HISTFILE = "~/.irb_history"
   MAXHISTSIZE = 100
@@ -22,7 +22,7 @@ unless defined? ETC_IRBRC_LOADED
       puts "Read #{lines.nitems} saved history commands from '#{histfile}'." if $VERBOSE
       Readline::HISTORY.push(*lines)
     else
-      puts "History file '#{histfile}' was empty or non-existant." if $VERBOSE
+      puts "History file '#{histfile}' was empty or non-existent." if $VERBOSE
     end
     Kernel::at_exit do
       lines = Readline::HISTORY.to_a.reverse.uniq.reverse
@@ -35,4 +35,13 @@ unless defined? ETC_IRBRC_LOADED
   end
 
   ETC_IRBRC_LOADED=true
+  railsrc_path = File.expand_path('~/.railsrc')
+  if (ENV['RAILS_ENV'] || defined? Rails) && File.exist?(railsrc_path)
+    begin
+      load railsrc_path
+    rescue Exception
+      warn "Could not load: #{railsrc_path}" # because of $!.message
+    end
+  end
 end
+
