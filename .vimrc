@@ -1,3 +1,5 @@
+filetype off
+call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 set number sw=4 ts=4 tw=78 wm=2 sm showcmd
 autocmd FileType ruby setlocal sw=2 ts=2 expandtab
