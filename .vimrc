@@ -58,7 +58,6 @@ imap <M-t> <Esc>:NERDTreeToggle<CR>
 nmap <M-t> :NERDTreeToggle<CR>
 nmap t :NERDTreeToggle<CR>
 set wildmode=list:longest
-set foldnestmax=3
 nnoremap <C-L> :nohls<CR><C-L>
 inoremap <C-L> <C-O>:nohls<CR>
 nnoremap Y y$
