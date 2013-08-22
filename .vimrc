@@ -4,6 +4,7 @@ call pathogen#runtime_append_all_bundles()
 set number sw=4 ts=4 tw=78 wm=2 sm showcmd
 autocmd FileType ruby setlocal sw=2 ts=2 expandtab
 autocmd FileType c    setlocal sw=4 sw=4 noet
+autocmd FileType python setlocal sw=4 ts=4 et
 au BufNewFile,BufRead *.rhtml,*.html,*.shtml,*.htm,*.php,*.rb,*.erb setlocal sw=2 ts=2 expandtab
 set cindent
 filetype plugin indent on
@@ -25,7 +26,7 @@ set foldmethod=indent background=dark
 set backspace=eol,start,indent
 set cinoptions=(s,us,l1
 set comments=sr:/*,mb:*,ex:*/
-set statusline=%<%f\ %h%m%r%=%-14.(%c,%l/%L%V%)\ %P
+set statusline=%<%f\ %y\ %h%m%r\ [%{&fenc},\ %{&ff}]%=0x%B\ %-14.(%c,%l/%L%V%)\ %P
 set laststatus=2
 set formatoptions=tcrqo
 set incsearch
@@ -48,8 +49,7 @@ hi Type ctermfg=cyan
 hi link localWhitespaceError Error
 au Syntax * syn match localWhitespaceError /\(\zs\%#\|\s\)\+$/
 au Syntax * syn match localWhitespaceError / \+\ze\t/
-au BufRead,BufNewFile *.vcl setfiletype c
-set nomodeline
+set modeline
 set hlsearch
 set guifont=Monaco:h12
 colorscheme darkblue
