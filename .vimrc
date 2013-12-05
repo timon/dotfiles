@@ -1,6 +1,9 @@
-filetype off
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+set nocompatible
+source ~/.vim/bundles.vim
+if &term =~ "xterm" || &term =~ "screen"
+  set t_Co=256
+endif
+
 set number sw=4 ts=4 tw=78 wm=2 sm showcmd
 autocmd FileType ruby setlocal sw=2 ts=2 expandtab
 autocmd FileType c    setlocal sw=4 sw=4 noet
@@ -30,9 +33,6 @@ set statusline=%<%f\ %y\ %h%m%r\ [%{&fenc},\ %{&ff}]%=0x%B\ %-14.(%c,%l/%L%V%)\ 
 set laststatus=2
 set formatoptions=tcrqo
 set incsearch
-hi Normal ctermbg=blue
-hi Numeric ctermfg=cyan
-hi Float ctermfg=cyan
 hi Constant ctermfg=cyan
 hi Comment ctermfg=brown
 hi Keyword ctermfg=white
@@ -47,12 +47,21 @@ hi Structure ctermfg=white
 hi StorageClass ctermfg=yellow
 hi Type ctermfg=cyan
 hi link localWhitespaceError Error
+colorscheme darkblue
+hi Normal ctermbg=darkblue
+hi Folded ctermbg=darkblue
+hi Search ctermbg=12 cterm=none ctermfg=none
+hi IncSearch ctermbg=12 cterm=none ctermfg=none
+hi SignColumn ctermbg=none
+hi CursorLine term=none cterm=none ctermbg=12
+hi CursorLineNr term=none cterm=none ctermbg=12
+hi Numeric ctermfg=cyan
+hi Float ctermfg=cyan
 au Syntax * syn match localWhitespaceError /\(\zs\%#\|\s\)\+$/
 au Syntax * syn match localWhitespaceError / \+\ze\t/
 set modeline
-set hlsearch
+set cursorline hls
 set guifont=Monaco:h12
-colorscheme darkblue
 set path+=/opt/local/include
 imap <M-t> <Esc>:NERDTreeToggle<CR>
 nmap <M-t> :NERDTreeToggle<CR>
@@ -62,4 +71,8 @@ nnoremap <C-L> :nohls<CR><C-L>
 inoremap <C-L> <C-O>:nohls<CR>
 nnoremap Y y$
 let g:syntastic_enable_signs=1
+
+set backupdir=/tmp/vim,.
+set directory=/tmp/vim,.
+set mouse=a
 
