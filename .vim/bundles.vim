@@ -12,4 +12,4 @@ Bundle 'rizzatti/dash.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'msanders/snipmate.vim'
 Bundle 'othree/html5.vim'
-
+Bundle 'sleistner/vim-jshint'
