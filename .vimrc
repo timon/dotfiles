@@ -6,6 +6,7 @@ endif
 
 set number sw=4 ts=4 tw=78 wm=2 sm showcmd
 autocmd FileType ruby setlocal sw=2 ts=2 expandtab
+autocmd FileType javascript setlocal sw=2 ts=2 expandtab
 autocmd FileType c    setlocal sw=4 sw=4 noet
 autocmd FileType python setlocal sw=4 ts=4 et
 au BufNewFile,BufRead *.rhtml,*.html,*.shtml,*.htm,*.php,*.rb,*.erb setlocal sw=2 ts=2 expandtab
