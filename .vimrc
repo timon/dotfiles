@@ -26,7 +26,7 @@ let g:treeExplWinSize=40
 syn on
 set encoding=utf8
 set guifont=Liberation\ Mono\ 14,Monaco:12,
-set foldmethod=indent background=dark
+set foldmethod=indent background=dark foldlevel=5
 set backspace=eol,start,indent
 set cinoptions=(s,us,l1
 set comments=sr:/*,mb:*,ex:*/
