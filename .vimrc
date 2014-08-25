@@ -24,7 +24,7 @@ let g:treeExplDirSort=1
 let g:treeExplWinSize=40
 syn on
 set encoding=utf8
-set guifont=Monaco:12
+set guifont=Liberation\ Mono\ 14,Monaco:12,
 set foldmethod=indent background=dark
 set backspace=eol,start,indent
 set cinoptions=(s,us,l1
@@ -61,7 +61,6 @@ au Syntax * syn match localWhitespaceError /\(\zs\%#\|\s\)\+$/
 au Syntax * syn match localWhitespaceError / \+\ze\t/
 set modeline
 set cursorline hls
-set guifont=Monaco:h12
 set path+=/opt/local/include
 imap <M-t> <Esc>:NERDTreeToggle<CR>
 nmap <M-t> :NERDTreeToggle<CR>
