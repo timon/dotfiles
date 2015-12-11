@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 MYDIR=`cd $(dirname $0); pwd`
 
 update_submodules() {
