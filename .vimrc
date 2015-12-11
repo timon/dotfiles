@@ -4,17 +4,31 @@ if &term =~ "xterm" || &term =~ "screen"
   set t_Co=256
 endif
 
-set number sw=4 ts=4 tw=78 wm=2 sm showcmd
+set sw=4 ts=4 tw=78 wm=2 sm showcmd
+set number
+
 autocmd FileType ruby setlocal sw=2 ts=2 expandtab
-autocmd FileType javascript setlocal sw=2 ts=2 expandtab
+autocmd FileType yaml setlocal sw=2 ts=2 expandtab list
+autocmd FileType javascript setlocal sw=2 ts=2 expandtab iskeyword=@,48-57,_,-,192-255,$
 autocmd FileType c    setlocal sw=4 sw=4 noet
+autocmd FileType css,scss setlocal sw=2 ts=2 et list iskeyword=@,48-57,_,-,192-255,$
 autocmd FileType python setlocal sw=4 ts=4 et
 au BufNewFile,BufRead *.rhtml,*.html,*.shtml,*.htm,*.php,*.rb,*.erb setlocal sw=2 ts=2 expandtab
+au BufNewFile,BufRead *.js.sample set ft=javascript sw=2 ts=2 et
+au FileType javascript let jshint2_save = 1
+au FileType zwzorg setlocal tw=0 nowrap
+au FileType zwzorg let b:SuperTabEnabled = 0
+autocmd FileType ruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby let g:rubycomplete_buffer_loading=1
+autocmd FileType ruby let g:rubycomplete_classes_in_global=1
+
 set cindent
 filetype plugin indent on
 if has("gui_running")
-	set co=200
+	resize 138 64
+	set co=134
 	set lines=64
+	set ch=3
 endif
 set guioptions-=T
 let c_space_errors=1
@@ -26,7 +40,7 @@ let g:treeExplWinSize=40
 syn on
 set encoding=utf8
 set guifont=Liberation\ Mono\ 14,Monaco:12,
-set foldmethod=indent background=dark foldlevel=5
+set foldmethod=indent background=dark foldlevel=3
 set backspace=eol,start,indent
 set cinoptions=(s,us,l1
 set comments=sr:/*,mb:*,ex:*/
@@ -58,6 +72,8 @@ hi CursorLine term=none cterm=none ctermbg=12
 hi CursorLineNr term=none cterm=none ctermbg=12
 hi Numeric ctermfg=cyan
 hi Float ctermfg=cyan
+hi orgLocalResult ctermfg=darkgreen guifg=darkgreen
+hi SpecialKey ctermfg=darkcyan term=none guifg=#2233ff
 au Syntax * syn match localWhitespaceError /\(\zs\%#\|\s\)\+$/
 au Syntax * syn match localWhitespaceError / \+\ze\t/
 set modeline
@@ -69,10 +85,21 @@ nmap t :NERDTreeToggle<CR>
 set wildmode=list:longest
 nnoremap <C-L> :nohls<CR><C-L>
 inoremap <C-L> <C-O>:nohls<CR>
+inoremap <S-CR> <C-O>O
 nnoremap Y y$
 let g:syntastic_enable_signs=1
 
-set backupdir=/tmp/vim,.
-set directory=/tmp/vim,.
+let g:SuperTabNoCompleteAfter = ['^', '\s', '[,)}*]']
+
+set backupdir=/var/tmp/vim,.
+set directory=/var/tmp/vim,.
 set mouse=a
 
+set noea
+
+set listchars=tab:‣∙,trail:∙,extends:>,precedes:<,nbsp:◦
+set colorcolumn=80
+set list
+
+inoremap <// </<C-x><C-o>
+nnoremap <leader>' :nohls<CR>
