@@ -40,7 +40,7 @@ let g:treeExplWinSize=40
 syn on
 set encoding=utf8
 if has("gui_gtk2")
-	set guifont=Liberation\ Mono\ 14
+	set guifont=Liberation\ Mono\ 12
 elseif has("gui_mac") || has("gui_macvim")
 	set guifont=Monaco:h12
 endif
