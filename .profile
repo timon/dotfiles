@@ -31,4 +31,5 @@ export COPY_EXTENDED_ATTRIBUTES_DISABLE
 eval "$(rbenv init -)"
 shopt -s histappend
 export LC_CTYPE=en_US.UTF-8
+export PYTHONIOENCODING=UTF-8
 export EDITOR=vim
