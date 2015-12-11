@@ -2,6 +2,7 @@ export LANG="en_US.UTF-8"
 alias ls='ls -kGF'
 alias be='bundle exec'
 alias gp="git push origin HEAD"
+alias gpf="git push -f origin HEAD"
 alias gg="git pull --rebase"
 alias gs="git status"
 alias ga="git add"
@@ -28,3 +29,6 @@ export PS1='Ruby: $(rbenv version-name)\012[\[\033[01;32m\]\u@\h\[\033[01;34m\] 
 export COPYFILE_DISABLE
 export COPY_EXTENDED_ATTRIBUTES_DISABLE
 eval "$(rbenv init -)"
+shopt -s histappend
+export LC_CTYPE=en_US.UTF-8
+export EDITOR=vim
