@@ -19,7 +19,8 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 
 export MANPATH=/usr/local/share/man:$MANPATH
 export CDPATH=".:~:~/Sites:~/Sources"
-if `which brew`; then
+if [ "`which brew`" ]
+then
 	if [ -f $(brew --prefix)/etc/bash_completion ]; then
 		. $(brew --prefix)/etc/bash_completion
 	fi
