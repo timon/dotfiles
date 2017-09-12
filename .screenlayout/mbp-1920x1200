@@ -1,0 +1,5 @@
+# Put this file into /etc/X11/Xsession.d/91_custom_screenresolution
+# to have your desktop use 1920x1200 instead of 2880x1800
+xrandr --output eDP1 --mode 1920x1200
+
+# vim ft=sh
