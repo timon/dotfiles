@@ -24,14 +24,22 @@ autocmd FileType javascript setlocal sw=2 ts=2 expandtab iskeyword=@,48-57,_,-,1
 autocmd FileType c    setlocal sw=4 sw=4 noet
 autocmd FileType css,scss setlocal sw=2 ts=2 et list iskeyword=@,48-57,_,-,192-255,$
 autocmd FileType python setlocal sw=4 ts=4 et
+au BufNewFile,BufRead *.sql set ft=mysql ts=2 sw=2 et
 au BufNewFile,BufRead *.rhtml,*.html,*.shtml,*.htm,*.php,*.rb,*.erb setlocal sw=2 ts=2 expandtab
 au BufNewFile,BufRead *.js.sample set ft=javascript sw=2 ts=2 et
 au FileType javascript let jshint2_save = 1
 au FileType zwzorg setlocal tw=0 nowrap
 au FileType zwzorg let b:SuperTabEnabled = 0
+au FileType markdown setlocal spelllang=ru,en
 autocmd FileType ruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby let g:rubycomplete_buffer_loading=1
 autocmd FileType ruby let g:rubycomplete_classes_in_global=1
+autocmd FileType gitcommit setlocal fo-=n
+
+au BufNewFile,BufRead *.md setlocal ft=markdown tw=78 fo=trq
+au BufNewFile,BufRead *.hbs set ft=mustache
+
+au FileType gitcommit setlocal fo-=an
 
 set cindent
 filetype plugin indent on
