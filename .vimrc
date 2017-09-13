@@ -1,4 +1,15 @@
 set nocompatible
+let g:ruby_heredoc_syntax_defaults = {
+      \ "javascript" : {
+      \   "start" : "JS",
+      \},
+      \ "mysql" : {
+      \   "start" : "SQL",
+      \},
+      \ "html" : {
+      \   "start" : "HTML",
+      \},
+\}
 source ~/.vim/bundles.vim
 if &term =~ "xterm" || &term =~ "screen"
   set t_Co=256
