@@ -52,3 +52,7 @@ shopt -s histappend
 export LC_CTYPE=en_US.UTF-8
 export PYTHONIOENCODING=UTF-8
 export EDITOR=vim
+
+export NVM_DIR=~/.nvm
+export NVM_DIR="${HOME}/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
