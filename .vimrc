@@ -128,6 +128,8 @@ set list
 inoremap <// </<C-x><C-o>
 nnoremap <leader>' :nohls<CR>
 
+let g:gitgutter_max_signs = 200  " default value
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height = 5
 let g:syntastic_auto_loc_list = 1
