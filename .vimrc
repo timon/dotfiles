@@ -147,6 +147,8 @@ highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
 
+set diffopt+=vertical
+
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
@@ -161,3 +163,5 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+
+set completeopt=menuone,longest,preview,noselect
