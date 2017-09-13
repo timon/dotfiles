@@ -27,7 +27,7 @@ then
 	prefix=$(brew --prefix)
 fi
 
-if [ -f ${prefix}/etc/bash_completion ]; then
+if [ -n "$BASH" ] && [ -f ${prefix}/etc/bash_completion ]; then
 	. ${prefix}/etc/bash_completion
 fi
 
