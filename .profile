@@ -8,6 +8,7 @@ alias gs="git status --short"
 alias ga="git add"
 alias gc="git commit"
 alias gac="git commit -a"
+alias duh='du -hd1 | gsort -h'
 if [ -d /Applications/MacVim.app ]; then
 	alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 	alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
