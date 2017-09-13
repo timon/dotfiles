@@ -30,7 +30,20 @@ fi
 if [ -f ${prefix}/etc/bash_completion ]; then
 	. ${prefix}/etc/bash_completion
 fi
-export PS1='Ruby: $(rbenv version-name)\012[\[\033[01;32m\]\u@\h\[\033[01;34m\] \W$(git branch &>/dev/null; if [ $? -eq 0 ]; then echo " \[\033[01;31m\]($(git branch | grep '^*' |sed s/\*\ //))"; fi)\[\033[00m\]]\$ '
+
+function prompt() {
+	local red="\[\033[01;31m\]"
+	local green="\[\033[01;32m\]"
+	local blue="\[\033[01;34m\]"
+	local norm="\[\033[00m\]"
+
+	local ruby='Ruby: $(rbenv version-name)'
+	local branch='$(__git_ps1 2>/dev/null)'
+
+	echo "${ruby}\012[${green}\\u@\\h ${blue}\\W${red}${branch}${norm}]\\\$ "
+}
+
+export PS1="$(prompt)"
 
 export COPYFILE_DISABLE
 export COPY_EXTENDED_ATTRIBUTES_DISABLE
