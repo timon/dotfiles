@@ -21,7 +21,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 export MANPATH=/usr/local/share/man:$MANPATH
-export CDPATH=".:~:~/Sites:~/Sources"
+export CDPATH=".:./organizers/:~:~/Sources"
 if [ "`which brew`" ]
 then
 	prefix=$(brew --prefix)
