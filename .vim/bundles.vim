@@ -16,9 +16,9 @@ Bundle 'tpope/vim-surround'
 Bundle 'ingydotnet/yaml-vim'
 Bundle 'ervandew/supertab'
 Bundle 'tmatilai/vim-monit'
-" Bundle 'gabrielelana/vim-markdown'
+Bundle 'gabrielelana/vim-markdown'
 Bundle 'mustache/vim-mustache-handlebars'
-Bundle 'scrooloose/syntastic'
+Bundle 'w0rp/ale'
 call vundle#end()
 
 " vim: ft=vim:

@@ -1,19 +1,9 @@
 set nocompatible
-let g:ruby_heredoc_syntax_defaults = {
-      \ "javascript" : {
-      \   "start" : "JS",
-      \},
-      \ "mysql" : {
-      \   "start" : "SQL",
-      \},
-      \ "html" : {
-      \   "start" : "HTML",
-      \},
-\}
 source ~/.vim/bundles.vim
 if &term =~ "xterm" || &term =~ "screen"
   set t_Co=256
 endif
+
 
 set sw=4 ts=4 tw=78 wm=2 sm showcmd
 set number
@@ -31,9 +21,10 @@ au FileType javascript let jshint2_save = 1
 au FileType zwzorg setlocal tw=0 nowrap
 au FileType zwzorg let b:SuperTabEnabled = 0
 au FileType markdown setlocal spelllang=ru,en
-autocmd FileType ruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType ruby let g:rubycomplete_buffer_loading=1
 autocmd FileType ruby let g:rubycomplete_classes_in_global=1
+
 autocmd FileType gitcommit setlocal fo-=n
 
 au BufNewFile,BufRead *.md setlocal ft=markdown tw=78 fo=trq
@@ -110,7 +101,6 @@ nnoremap <C-L> :nohls<CR><C-L>
 inoremap <C-L> <C-O>:nohls<CR>
 inoremap <S-CR> <C-O>O
 nnoremap Y y$
-let g:syntastic_enable_signs=1
 
 let g:SuperTabNoCompleteAfter = ['^', '\s', '[,)}*]']
 
@@ -128,22 +118,6 @@ inoremap <// </<C-x><C-o>
 nnoremap <leader>' :nohls<CR>
 
 let g:gitgutter_max_signs = 200  " default value
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 1
-let g:syntastic_ruby_checkers = ['rubocop', 'mri']
-let g:syntastic_javascript_checkers = ['eslint']
-
-let g:syntastic_javascript_eslint_exe='yarn run eslint'
-let g:syntastic_javascript_rubocop_exe='rbenv exec rubocop'
-
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '❕'
-let g:syntastic_style_warning_symbol = '💩'
 
 highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
@@ -168,3 +142,26 @@ if executable('ag')
 endif
 
 set completeopt=menuone,longest,preview,noselect
+
+set scrolloff=8
+
+" Only run linters named in ale_linters settings.
+" let g:ale_linters_explicit = 1
+let g:ale_completion_enabled = 1
+
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'ruby': ['rubocop']
+\}
+"let g:ale_set_loclist = 1
+let g:ale_set_quickfix = 1
+"let g:ale_open_list = 0
+"
+"let g:ale_javascript_eslint_executable='yarn run eslint'
+"let g:ale_ruby_rubocop_executable='rbenv exec rubocop'
+
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '💩'
+let g:ale_sign_style_error = '💩'
+let g:ale_sign_style_warning = '⁉️'
+let g:ale_sign_info = '❕'
