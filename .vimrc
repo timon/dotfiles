@@ -58,11 +58,10 @@ let g:treeExplDirSort=1
 let g:treeExplWinSize=40
 syn on
 set encoding=utf8
-if has("gui_gtk2")
-	set guifont=Liberation\ Mono\ 12
+if has("gui_gtk2") || has("gui_gtk3")
+	set guifont=Go\ Mono\ 7,Liberation\ Mono\ 7
 elseif has("gui_mac") || has("gui_macvim")
-"	set guifont=Monaco:h12
-	set guifont=Go\ Mono:h12
+	set guifont=Go\ Mono:h12,Monaco:h12
 endif
 set foldmethod=indent background=dark foldlevel=3
 set backspace=eol,start,indent
