@@ -134,7 +134,11 @@ let g:syntastic_loc_list_height = 5
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 let g:syntastic_javascript_checkers = ['eslint']
+
+let g:syntastic_javascript_eslint_exe='yarn run eslint'
+let g:syntastic_javascript_rubocop_exe='rbenv exec rubocop'
 
 let g:syntastic_error_symbol = '❌'
 let g:syntastic_style_error_symbol = '⁉️'
