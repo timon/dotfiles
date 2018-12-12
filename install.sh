@@ -10,7 +10,7 @@ update_submodules() {
 
 symlink_files() {
 	echo "Setting up dotfiles from ${MYDIR}"
-	for file in .bashrc .profile .vim .vimrc
+	for file in .bashrc .inputrc .profile .vim .vimrc
 	do
 		ln -nsf "${MYDIR}/${file}" ~
 	done
