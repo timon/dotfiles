@@ -43,3 +43,8 @@ then
 	export PERL_MB_OPT="--install_base \"${HOME}/perl5\""
 	export PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"
 fi
+
+if [ -e "${HOME}/.gnupg/S.gpg-agent.ssh" ]
+then
+	export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
+fi
