@@ -1,0 +1,50 @@
+#!/bin/bash
+
+usage() {
+	echo "Usage: git-here [-h] [-f] <branch-name> [<branch-name>...]" >&2
+}
+
+while getopts "hf" opt
+do
+	case $opt in
+		h)
+			usage
+			exit 0
+			;;
+		f)
+			use_force=yes
+			;;
+		*)
+			echo "Invalid options '${opt}'" >&2
+			usage
+			exit 1
+			;;
+	esac
+done
+
+shift $((OPTIND - 1))
+
+if [ $# -lt 1 ]
+then
+	usage
+	exit 1
+fi
+
+old_branch=$(git name-rev --name-only HEAD)
+
+reset_branch() {
+	git checkout $1 || return 1
+	if [ "${use_force}" ]
+	then
+		git reset --hard $2 || return 2
+	else
+		git merge --ff-only $2 || return 2
+	fi
+}
+
+for branch in $@
+do
+	reset_branch $branch $old_branch || \
+		echo "Failed to reset branch ${branch}" >&2
+done
+git checkout $old_branch

@@ -14,6 +14,12 @@ symlink_files() {
 	do
 		ln -nsf "${MYDIR}/${file}" ~
 	done
+
+	mkdir -p ${HOME}/bin
+	for file in ${MYDIR}/bin/*
+	do
+		ln -nsf ${file} ~/bin
+	done
 }
 
 run_vundle() {

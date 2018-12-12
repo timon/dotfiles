@@ -1,0 +1,40 @@
+#!/bin/bash
+
+usage() {
+	echo "Usage: $0 [-h] [-c commit] [-a|files...]" >&2
+	echo "" >&2
+	echo "Options:" >&2
+	echo "  -c commit    Amend to the commit specified (SHA or reference)" >&2
+	echo "  -a           Amend all tracked files in working dir" >&2
+}
+
+while getopts "ac:h" opt
+do
+	case $opt in
+		a)
+			all="-a"
+			;;
+		c)
+			amend=$(git rev-parse ${OPTARG})
+			;;
+		h)
+			usage
+			exit 0
+			;;
+		*)
+			echo "invalid option '${opt}'" >&2
+			usage
+			exit 1
+			;;
+	esac
+done
+
+shift $((OPTIND - 1))
+
+if [ "${amend}" ]
+then
+	git commit --fixup=${amend} $all "$@" && \
+		git rebase -i --autosquash "${amend}~" --autostash
+else
+	git commit --amend -C HEAD $all "$@"
+fi

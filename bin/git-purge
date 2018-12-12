@@ -1,0 +1,23 @@
+#!/bin/bash
+usage() {
+	echo "Usage: git-purge <remote>" >&2
+}
+
+if [ $# -lt 1 ]
+then
+	usage
+	exit 1
+fi
+
+log=$(git remote prune "$1")
+echo "$log"
+
+pruned=$(awk '/\[pruned\]/ { print $NF }' <<<"$log" | sed "s,${1}/,,")
+
+if [ "$pruned" ]
+then
+	for branch in $pruned
+	do
+		git branch -D "$branch" 2>/dev/null
+	done
+fi

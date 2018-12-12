@@ -1,0 +1,40 @@
+#!/bin/sh
+
+usage() {
+	echo "Usage: git-wanna-merge [-h] [-n] [-m mainline_branch]" \
+		"[-t target_branch]" >&2
+}
+
+while getopts "hm:nt:" opt
+do
+	case $opt in
+		h)
+			usage
+			exit 0
+			;;
+		n)
+			dryrun=/bin/echo
+			;;
+		m)
+			mainline=${OPTARG}
+			;;
+		t)
+			target=${OPTARG}
+			;;
+		*)
+			usage
+			exit 1
+			;;
+	esac
+done
+
+shift $((OPTIND - 1))
+
+cur_branch=$(git name-rev --name-only HEAD)
+mainline=${mainline:=master}
+target=${target:=merges/${mainline}+${cur_branch}}
+
+# hard reset ${target} to ${mainline} or create a new ref
+${dryrun} git branch -f "${target}" "${mainline}"
+${dryrun} git checkout "${target}"
+${dryrun} git merge -m "Merge branch ${cur_branch} into ${mainline}" ${cur_branch}
