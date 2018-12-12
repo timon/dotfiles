@@ -1,8 +1,18 @@
+[alias]
+	lg = log --oneline --graph --abbrev --decorate
 [branch]
 	autosetupmerge = true
+	autosetuprebase = always
 [core]
 	whitespace = fix,-indent-with-non-tab,trailing-space
 [color]
 	ui = auto
 [color "diff"]
 	whitespace = red reverse
+[merge]
+	ff = no
+	conflictstyle = diff3
+[push]
+	default = matching
+[rerere]
+	enabled = true
