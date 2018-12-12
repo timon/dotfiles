@@ -22,28 +22,6 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 
 export MANPATH=/usr/local/share/man:$MANPATH
 export CDPATH=".:./organizers/:~:~/Sources"
-if [ "`which brew`" ]
-then
-	prefix=$(brew --prefix)
-fi
-
-if [ -n "$BASH" ] && [ -f ${prefix}/etc/bash_completion ]; then
-	. ${prefix}/etc/bash_completion
-fi
-
-function prompt() {
-	local red="\[\033[01;31m\]"
-	local green="\[\033[01;32m\]"
-	local blue="\[\033[01;34m\]"
-	local norm="\[\033[00m\]"
-
-	local ruby='Ruby: $(rbenv version-name)'
-	local branch='$(__git_ps1 2>/dev/null)'
-
-	echo "${ruby}\012[${green}\\u@\\h ${blue}\\W${red}${branch}${norm}]\\\$ "
-}
-
-export PS1="$(prompt)"
 
 export COPYFILE_DISABLE
 export COPY_EXTENDED_ATTRIBUTES_DISABLE
