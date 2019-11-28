@@ -1,14 +1,15 @@
 #!/bin/bash
 
 usage() {
-	echo "Usage: $0 [-h] [-c commit] [-a|files...]" >&2
+	echo "Usage: $0 [-h] [-n] [-c commit] [-a|files...]" >&2
 	echo "" >&2
 	echo "Options:" >&2
 	echo "  -c commit    Amend to the commit specified (SHA or reference)" >&2
+	echo "  -n           Don't run rebase, just record the intention" >&2
 	echo "  -a           Amend all tracked files in working dir" >&2
 }
 
-while getopts "ac:h" opt
+while getopts "ac:hn" opt
 do
 	case $opt in
 		a)
@@ -20,6 +21,9 @@ do
 		h)
 			usage
 			exit 0
+			;;
+		n)
+			norebase=yes
 			;;
 		*)
 			echo "invalid option '${opt}'" >&2
@@ -34,7 +38,15 @@ shift $((OPTIND - 1))
 if [ "${amend}" ]
 then
 	git commit --fixup=${amend} $all "$@" && \
-		git rebase -i --autosquash "${amend}~" --autostash
+		[ -z "$norebase" ]  && \
+		git rebase -i -r --autosquash "${amend}~" --autostash
+elif [ "$norebase" ]
+then
+	echo "The \`-n' flag is potentially useless without \`-c commit'." >&2
+	echo "Did you want to just amend the HEAD?" >&2
+	echo "" >&2
+	usage
+	exit 1
 else
 	git commit --amend -C HEAD $all "$@"
 fi
