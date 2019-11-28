@@ -23,3 +23,8 @@ fi
 if [ -n "$BASH" ] && [ -f ${prefix}/etc/bash_completion ]; then
 	. ${prefix}/etc/bash_completion
 fi
+
+if [ "`which direnv`" ]
+then
+	eval $(direnv hook bash)
+fi
