@@ -49,3 +49,5 @@ if [ -e "${HOME}/.gnupg/S.gpg-agent.ssh" ]
 then
 	export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
 fi
+
+[ "$DISPLAY" ] && export VISUAL="gvim -f"
