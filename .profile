@@ -1,8 +1,8 @@
 export LANG="en_US.UTF-8"
 alias ls='ls -kGF'
 alias be='bundle exec'
-alias gp="git push origin HEAD"
-alias gpf="git push -f origin HEAD"
+alias gp="git push origin HEAD --follow-tags"
+alias gpf="git push --force-with-lease origin HEAD"
 alias gg="git pull --rebase"
 alias gs="git status -sb"
 alias ga="git add"
