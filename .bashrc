@@ -28,3 +28,6 @@ if [ "`which direnv`" ]
 then
 	eval $(direnv hook bash)
 fi
+
+export HISTCONTROL=ignoreboth:erasedups
+# PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
