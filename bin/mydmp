@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [[ "$1" == "--defaults-extra-file="* ]]
+then
+	extra_defaults=$1
+	shift
+fi
+without_skips=${@/--ignore-table*}
+
+set -ex
+mysqldump $extra_defaults -CQq --set-gtid-purged=OFF --hex-blob \
+	--single-transaction -d $without_skips
+mysqldump $extra_defaults --set-gtid-purged=OFF --hex-blob --skip-opt \
+	--skip-add-drop-table --skip-add-locks -CKQqnt --extended-insert $@
