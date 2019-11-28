@@ -82,7 +82,7 @@ hi Folded ctermbg=darkblue
 hi Search ctermbg=12 cterm=none ctermfg=none
 hi IncSearch ctermbg=12 cterm=none ctermfg=none
 hi SignColumn ctermbg=none
-hi CursorLine term=none cterm=none ctermbg=12
+hi CursorLine term=none cterm=none ctermbg=none cterm=underline
 hi CursorLineNr term=none cterm=none ctermbg=12
 hi Numeric ctermfg=cyan
 hi Float ctermfg=cyan
