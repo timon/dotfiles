@@ -103,6 +103,7 @@ inoremap <S-CR> <C-O>O
 nnoremap Y y$
 
 let g:SuperTabNoCompleteAfter = ['^', '\s', '[,)}*]']
+let g:ruby_indent_assignment_style = 'variable'
 
 set backupdir=/var/tmp/vim,.
 set directory=/var/tmp/vim,.
