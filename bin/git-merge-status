@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [ "$(which ag)" ]
+then
+  GREP=ag
+else
+  GREP="grep -E"
+fi
+
+status=$(git status --short | $GREP  '^([U?].|.[ADU])' | awk '{ print $2, 1, $1 }')
+errors=$(git diff --check | awk -F: '{ print $1, 2, ">>" }' | uniq)
+
+(echo "${status}"; echo "${errors}") | sort | awk '
+BEGIN {
+	untracked[0] = ""; delete untracked[0]
+	red=sprintf("\033[01;31m")
+	norm=sprintf("\033[0m")
+}
+/\?$/ { untracked[length(untracked)] = $3 " " $1 }
+/[^?]$/ { printf("%s%s%s %s\n", red, $3, norm, $1) }
+END { for (file in untracked) print untracked[file] }
+'
