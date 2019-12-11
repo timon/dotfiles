@@ -156,8 +156,8 @@ let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'ruby': ['rubocop']
 \}
-"let g:ale_set_loclist = 1
-let g:ale_set_quickfix = 1
+let g:ale_set_loclist = 1
+"let g:ale_set_quickfix = 1
 "let g:ale_open_list = 0
 "
 "let g:ale_javascript_eslint_executable='yarn run eslint'
