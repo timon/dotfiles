@@ -50,4 +50,4 @@ then
 	export SSH_AUTH_SOCK=$(gpgconf --list-dir agent-ssh-socket)
 fi
 
-[ "$DISPLAY" ] && export VISUAL="gvim -f"
+$(which gvim 2>&1 >/dev/null) && [ "$DISPLAY" ] && export VISUAL="gvim -f"
