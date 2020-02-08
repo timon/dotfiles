@@ -45,9 +45,9 @@ then
 	export PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"
 fi
 
-if [ -e "${HOME}/.gnupg/S.gpg-agent.ssh" ]
+if [ -d "${HOME}/.gnupg" ]
 then
-	export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
+	export SSH_AUTH_SOCK=$(gpgconf --list-dir agent-ssh-socket)
 fi
 
 [ "$DISPLAY" ] && export VISUAL="gvim -f"
