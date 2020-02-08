@@ -50,7 +50,9 @@ let g:treeExplWinSize=40
 syn on
 set encoding=utf8
 if has("gui_gtk2") || has("gui_gtk3")
-	set guifont=Go\ Mono\ 7,Liberation\ Mono\ 7
+	" Won't work, will use the first font
+	" See :help 'guifont'
+	set guifont=Go\ Mono\ 7,\ Liberation\ Mono\ 7,\ Inconsolata\ Medium\ 11
 elseif has("gui_mac") || has("gui_macvim")
 	set guifont=Go\ Mono:h12,Monaco:h12
 endif
@@ -166,3 +168,7 @@ let g:ale_sign_warning = '💩'
 let g:ale_sign_style_error = '💩'
 let g:ale_sign_style_warning = '⁉️'
 let g:ale_sign_info = '❕'
+
+if filereadable(expand('~/.vimrc.local'))
+    source ~/.vimrc.local
+endif
