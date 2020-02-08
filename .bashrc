@@ -7,10 +7,13 @@ function prompt() {
 	local blue="\[\033[01;34m\]"
 	local norm="\[\033[00m\]"
 
-	local ruby='Ruby: $(rbenv version-name)'
+	if which rbenv 2>&1 > /dev/null
+	then
+		local ruby='Ruby: $(rbenv version-name)\012'
+	fi
 	local branch='$(__git_ps1 2>/dev/null)'
 
-	echo "${ruby}\012[${green}\\u@\\h ${blue}\\W${red}${branch}${norm}]\\\$ "
+	echo "${ruby}[${green}\\u@\\h ${blue}\\W${red}${branch}${norm}]\\\$ "
 }
 
 export PS1="$(prompt)"

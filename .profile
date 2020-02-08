@@ -26,7 +26,7 @@ export CDPATH=".:./organizers/:~:~/Sources"
 
 export COPYFILE_DISABLE
 export COPY_EXTENDED_ATTRIBUTES_DISABLE
-eval "$(rbenv init -)"
+$(which rbenv >/dev/null 2>&1) && eval "$(rbenv init -)"
 shopt -s histappend
 export LC_CTYPE=en_US.UTF-8
 export PYTHONIOENCODING=UTF-8
