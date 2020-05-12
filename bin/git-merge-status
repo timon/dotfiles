@@ -7,7 +7,7 @@ else
   GREP="grep -E"
 fi
 
-status=$(git status --short | $GREP  '^([U?].|.[ADU])' | awk '{ print $2, 1, $1 }')
+status=$(git status --short | $GREP  '^([U?].|.[ADUM])' | awk '{ print $2, 1, $1 }')
 errors=$(git diff --check | awk -F: '{ print $1, 2, ">>" }' | uniq)
 
 (echo "${status}"; echo "${errors}") | sort | awk '
@@ -17,6 +17,6 @@ BEGIN {
 	norm=sprintf("\033[0m")
 }
 /\?$/ { untracked[length(untracked)] = $3 " " $1 }
-/[^?]$/ { printf("%s%s%s %s\n", red, $3, norm, $1) }
+/[^?]$/ { printf("%s%02s%s %s\n", red, $3, norm, $1) }
 END { for (file in untracked) print untracked[file] }
 '
