@@ -29,7 +29,7 @@ fi
 
 if [ "`which direnv`" ]
 then
-	eval $(direnv hook bash)
+	eval "$(direnv hook bash)"
 fi
 
 export HISTCONTROL=ignoreboth:erasedups
