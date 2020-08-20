@@ -4,6 +4,7 @@
 	autosetupmerge = true
 	autosetuprebase = always
 [core]
+	excludesfile = ~/.gitignore
 	whitespace = fix,-indent-with-non-tab,trailing-space
 [color]
 	ui = auto
@@ -16,3 +17,5 @@
 	default = matching
 [rerere]
 	enabled = true
+[user]
+	name = Artem Ignatyev

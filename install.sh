@@ -26,6 +26,12 @@ run_vundle() {
 	vim -u ~/.vim/bundles.vim +BundleInstall +qall
 }
 
+configure_git() {
+	ln -nsf "${MYDIR}/gitignore" ~/.gitignore
+	[ -e ~/.gitconfig ] || cp "${MYDIR}/.gitconfig" ~
+}
+
 update_submodules
 symlink_files
+configure_git
 run_vundle
