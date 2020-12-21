@@ -18,6 +18,6 @@ if [ "$pruned" ]
 then
 	for branch in $pruned
 	do
-		git branch -D "$branch" 2>/dev/null
+		git branch -d "$branch" 2>/dev/null
 	done
 fi
