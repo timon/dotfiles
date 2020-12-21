@@ -17,6 +17,9 @@ Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'pangloss/vim-javascript'
 Bundle 'leafgarland/typescript-vim'
 Bundle 'w0rp/ale'
+
+Bundle 'junegunn/fzf'
+Bundle 'junegunn/fzf.vim'
 call vundle#end()
 
 " vim: ft=vim:
