@@ -15,6 +15,7 @@ Bundle 'ervandew/supertab'
 Bundle 'gabrielelana/vim-markdown'
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'pangloss/vim-javascript'
+Bundle 'leafgarland/typescript-vim'
 Bundle 'w0rp/ale'
 call vundle#end()
 
