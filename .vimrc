@@ -121,6 +121,13 @@ nnoremap <leader>' :nohls<CR>
 nnoremap <leader>t :GFiles<CR>
 nmap t :Files<CR>
 
+if has("gui_gtk2") || has("gui_gtk3")
+  " vim 8 has broken gx:
+  " https://vi.stackexchange.com/a/22505
+  nnoremap gx :!xdg-open <cWORD> &<CR><CR>
+else
+  nnoremap gx :!open <cWORD> &<CR><CR>
+endif
 
 let g:gitgutter_max_signs = 200  " default value
 
