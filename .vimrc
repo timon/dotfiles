@@ -81,15 +81,15 @@ hi link localWhitespaceError Error
 colorscheme darkblue
 hi Normal ctermbg=darkblue
 hi Folded ctermbg=darkblue
-hi Search ctermbg=12 cterm=none ctermfg=none
-hi IncSearch ctermbg=12 cterm=none ctermfg=none
-hi SignColumn ctermbg=none
-hi CursorLine term=none cterm=none ctermbg=none cterm=underline
-hi CursorLineNr term=none cterm=none ctermbg=12
+hi Search ctermbg=12 cterm=NONE ctermfg=NONE
+hi IncSearch ctermbg=12 cterm=NONE ctermfg=NONE
+hi SignColumn ctermbg=NONE guibg=NONE
+hi CursorLine term=NONE cterm=NONE ctermbg=NONE cterm=underline
+hi CursorLineNr term=NONE cterm=NONE ctermbg=12
 hi Numeric ctermfg=cyan
 hi Float ctermfg=cyan
 hi orgLocalResult ctermfg=darkgreen guifg=darkgreen
-hi SpecialKey ctermfg=darkcyan term=none guifg=#2233ff
+hi SpecialKey ctermfg=darkcyan term=NONE guifg=#2233ff
 au Syntax * syn match localWhitespaceError /\(\zs\%#\|\s\)\+$/
 au Syntax * syn match localWhitespaceError / \+\ze\t/
 set modeline
