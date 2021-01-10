@@ -54,7 +54,7 @@ then
 	export PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"
 fi
 
-if [ -d "${HOME}/.gnupg" ]
+if [ -d "${HOME}/.gnupg" ] && [ -z "${SSH_AUTH_SOCK}" ]
 then
 	export SSH_AUTH_SOCK=$(gpgconf --list-dir agent-ssh-socket)
 fi
