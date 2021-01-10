@@ -97,9 +97,6 @@ au Syntax * syn match localWhitespaceError / \+\ze\t/
 set modeline
 set cursorline hls
 set path+=/opt/local/include
-imap <M-t> <Esc>:NERDTreeToggle<CR>
-nmap <M-t> :NERDTreeToggle<CR>
-nmap t :NERDTreeToggle<CR>
 set wildmode=list:longest
 nnoremap <C-L> :nohls<CR><C-L>
 inoremap <C-L> <C-O>:nohls<CR>
@@ -121,6 +118,9 @@ set list
 
 inoremap <// </<C-x><C-o>
 nnoremap <leader>' :nohls<CR>
+nnoremap <leader>t :GFiles<CR>
+nmap t :Files<CR>
+
 
 let g:gitgutter_max_signs = 200  " default value
 
