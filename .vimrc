@@ -90,6 +90,8 @@ hi Numeric ctermfg=cyan
 hi Float ctermfg=cyan
 hi orgLocalResult ctermfg=darkgreen guifg=darkgreen
 hi SpecialKey ctermfg=darkcyan term=NONE guifg=#2233ff
+hi GitGutterAdd guifg=green ctermfg=10
+hi GitGutterDelete guifg=red ctermfg=12
 au Syntax * syn match localWhitespaceError /\(\zs\%#\|\s\)\+$/
 au Syntax * syn match localWhitespaceError / \+\ze\t/
 set modeline
