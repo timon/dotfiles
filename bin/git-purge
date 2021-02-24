@@ -18,6 +18,10 @@ if [ "$pruned" ]
 then
 	for branch in $pruned
 	do
-		git branch -d "$branch" 2>/dev/null
+		# Use -D to purge regardless of local merge status
+		# (e.g; git fetch && git purge origin)
+		# Use -d to purge only branches that are merged locally
+		# (e.g. git pull && git purge origin)
+		git branch -D "$branch" 2>/dev/null
 	done
 fi
