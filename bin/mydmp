@@ -8,7 +8,7 @@ fi
 without_skips=${@/--ignore-table*}
 
 set -ex
-mysqldump $extra_defaults -CQq --set-gtid-purged=OFF --hex-blob \
+mysqldump $extra_defaults -CQq --hex-blob \
 	--single-transaction -d $without_skips
-mysqldump $extra_defaults --set-gtid-purged=OFF --hex-blob --skip-opt \
+mysqldump $extra_defaults --hex-blob --skip-opt \
 	--skip-add-drop-table --skip-add-locks -CKQqnt --extended-insert $@
