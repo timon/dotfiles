@@ -20,6 +20,11 @@ Bundle 'w0rp/ale'
 
 Bundle 'junegunn/fzf'
 Bundle 'junegunn/fzf.vim'
+
+Bundle 'aklt/plantuml-syntax'
+Bundle 'weirongxu/plantuml-previewer.vim'
+
+
 call vundle#end()
 
 " vim: ft=vim:
