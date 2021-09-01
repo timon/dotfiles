@@ -5,7 +5,7 @@ if &term =~ "xterm" || &term =~ "screen"
 endif
 
 
-set sw=4 ts=4 tw=78 wm=2 sm showcmd
+set sw=2 ts=2 et tw=78 wm=2 sm showcmd
 set number
 
 autocmd FileType ruby setlocal sw=2 ts=2 expandtab
