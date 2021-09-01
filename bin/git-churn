@@ -2,4 +2,4 @@
 git log --all -M -C --name-only --format='format:' "$@" | \
 	sort | grep -v '^$' | \
 	uniq -c | sort -rn | \
-	awk 'BEGIN {print "count\tfile"} {print $1 "\t" $2}'
+	awk 'BEGIN {print "count\tfile"} {print $1 "\t" $2}' | ${PAGER-less}
