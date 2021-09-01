@@ -8,7 +8,7 @@ else
 fi
 
 status=$(git status --short | $GREP  '^([U?].|.[ADUM])' | awk '{ print $2, 1, $1 }')
-errors=$(git diff --check | awk -F: '{ print $1, 2, ">>" }' | uniq)
+errors=$(git diff --check | $GREP 'leftover conflict marker' | awk -F: '{ print $1, 2, ">>" }' | uniq)
 
 (echo "${status}"; echo "${errors}") | sort | awk '
 BEGIN {
