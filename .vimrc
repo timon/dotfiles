@@ -52,7 +52,7 @@ set encoding=utf8
 if has("gui_gtk2") || has("gui_gtk3")
 	" Won't work, will use the first font
 	" See :help 'guifont'
-	set guifont=Go\ Mono\ 10,\ Liberation\ Mono\ 7,\ Inconsolata\ Medium\ 11
+	set guifont=Go\ Mono\ 9,\ Liberation\ Mono\ 7,\ Inconsolata\ Medium\ 11
 elseif has("gui_mac") || has("gui_macvim")
 	set guifont=Go\ Mono:h12,Monaco:h12
 endif
