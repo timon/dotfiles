@@ -1,0 +1,7 @@
+{
+"SR*FBG": "{#Escape}{PLOVER:SUSPEND}",
+"SR*RS": "{#Shift_L(Return)}{^}{-|}",
+"PW*FD": "{bvd^}",
+"PW-FD": "BvD",
+"HROUBG": "heroku"
+}
