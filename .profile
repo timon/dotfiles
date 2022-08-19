@@ -41,7 +41,43 @@ macos_devtools_prefix="/Library/Developer/CommandLineTools"
 macos_git_comp="${macos_devtools_prefix}/usr/share/git-core/git-completion.bash"
 [ -r "${macos_git_comp}" ] && source "${macos_git_comp}"
 
-export PS1='Ruby: $(rbenv version-name)\012[\[\033[01;32m\]\u@\h\[\033[01;34m\] \W$(git branch &>/dev/null; if [ $? -eq 0 ]; then echo " \[\033[01;31m\]($(git branch | grep '^[*]' |sed s/\*\ //))"; fi)\[\033[00m\]]\$ '
+function current_ruby() {
+  if [ "`which rbenv`" ]
+  then
+    version=$(rbenv version-name)
+  else
+    version="system (rbenv not set up)"
+  fi
+  echo -n "Ruby: ${version}"
+}
+
+function current_node() {
+  if [ "`type -t nvm`" ]
+  then
+    version=$(nvm current)
+  elif [ "`which node`" ]
+  then
+    version="system (nvm not set up)"
+  else
+    version="none"
+  fi
+
+  echo -n "Node: ${version}"
+}
+
+function current_branch() {
+  git branch &>/dev/null || return
+  echo -n " ($(git branch --show-current))"
+}
+
+ruby_node='$(current_ruby)\011$(current_node)'
+lf='\012'
+red='\033[01;31m\]'
+green='\[\033[01;32m\]'
+blue='\[\033[01;34m\]'
+uncolor='\[\033[00m\]'
+user_host_dir_branch="${green}\u@\h ${blue}\W${red}\$(current_branch)${uncolor}"
+export PS1="${ruby_node}${lf}[${user_host_dir_branch}]\$ "
 
 export COPYFILE_DISABLE
 export COPY_EXTENDED_ATTRIBUTES_DISABLE
