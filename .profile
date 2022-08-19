@@ -118,3 +118,8 @@ then
   export VISUAL="mvim -f"
   export BUNDLER_EDITOR="mvim"
 fi
+
+if [ "`which direnv`" ]
+then
+	eval "$(direnv hook bash)"
+fi
