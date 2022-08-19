@@ -109,4 +109,8 @@ if [ "$DISPLAY" ] && `which gvim 2>&1 >/dev/null`
 then
 	export VISUAL="gvim -f"
 	export BUNDLER_EDITOR="gvim"
+elif [ "`uname -s`" = "Darwin" ] && `type mvim 2>&1 >/dev/null`
+then
+  export VISUAL="mvim -f"
+  export BUNDLER_EDITOR="mvim"
 fi
