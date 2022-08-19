@@ -36,6 +36,11 @@ then
 		. $(brew --prefix)/etc/profile.d/bash_completion.sh
 	fi
 fi
+
+macos_devtools_prefix="/Library/Developer/CommandLineTools"
+macos_git_comp="${macos_devtools_prefix}/usr/share/git-core/git-completion.bash"
+[ -r "${macos_git_comp}" ] && source "${macos_git_comp}"
+
 export PS1='Ruby: $(rbenv version-name)\012[\[\033[01;32m\]\u@\h\[\033[01;34m\] \W$(git branch &>/dev/null; if [ $? -eq 0 ]; then echo " \[\033[01;31m\]($(git branch | grep '^[*]' |sed s/\*\ //))"; fi)\[\033[00m\]]\$ '
 
 export COPYFILE_DISABLE
