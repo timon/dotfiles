@@ -100,9 +100,13 @@ then
 	export PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"
 fi
 
+function force_gpg_auth() {
+	export SSH_AUTH_SOCK=$(gpgconf --list-dir agent-ssh-socket)
+}
+
 if [ -d "${HOME}/.gnupg" ] && [ -z "${SSH_AUTH_SOCK}" ]
 then
-	export SSH_AUTH_SOCK=$(gpgconf --list-dir agent-ssh-socket)
+  force_gpg_auth
 fi
 
 if [ "$DISPLAY" ] && `which gvim 2>&1 >/dev/null`
