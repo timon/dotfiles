@@ -23,6 +23,11 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 
 export MANPATH=/usr/local/share/man:$MANPATH
 export CDPATH=".:~:~/Sites:~/Sources"
+if [ -e "/opt/homebrew/bin/brew" ]
+then
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 if [ "`which brew`" ]
 then
 	if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -30,9 +35,6 @@ then
 	elif [ -f $(brew --prefix)/etc/profile.d/bash_completion.sh ]; then
 		. $(brew --prefix)/etc/profile.d/bash_completion.sh
 	fi
-elif [ -e "/opt/homebrew/bin/brew" ]
-then
-	eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 export PS1='Ruby: $(rbenv version-name)\012[\[\033[01;32m\]\u@\h\[\033[01;34m\] \W$(git branch &>/dev/null; if [ $? -eq 0 ]; then echo " \[\033[01;31m\]($(git branch | grep '^[*]' |sed s/\*\ //))"; fi)\[\033[00m\]]\$ '
 
