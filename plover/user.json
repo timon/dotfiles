@@ -1,7 +1,22 @@
 {
+"SKWRAURBGS": "{^\n^}{-|}",
+"SPR-R": "{#Super(Return)}",
 "SR*FBG": "{#Escape}{PLOVER:SUSPEND}",
 "SR*RS": "{#Shift_L(Return)}{^}{-|}",
+"KHR-PBS": "{^::^}{-|}",
+"KR*FS": "Creditsafe",
 "PW*FD": "{bvd^}",
+"PWE/TAOUL": "Betül",
 "PW-FD": "BvD",
-"HROUBG": "heroku"
+"PHA/REBG": "Marek",
+"P-R": "PR",
+"WEB/HAOBG": "webhook",
+"HRO*ER": "{>}",
+"HROUBG": "heroku",
+"HRU/KASZ": "Łukasz",
+"HRUTS": "Lutz",
+"HRUT/-Z": "Lutz",
+"RA/TPAL": "Rafal",
+"AOPBLG": "Okan",
+"AR/TEPL": "Artem"
 }

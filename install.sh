@@ -52,7 +52,7 @@ configure_plover() {
 
     echo "Symlinking plover config files"
     mkdir -p "${plover_files}"
-    ln -nsfv "${MYDIR}/plover/*" "${plover_files}"
+    ln -nsfv ${MYDIR}/plover/* "${plover_files}"
   fi
 }
 
