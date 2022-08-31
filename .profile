@@ -70,14 +70,18 @@ function current_branch() {
   echo -n " ($(git branch --show-current))"
 }
 
-ruby_node='$(current_ruby)\011$(current_node)'
-lf='\012'
-red='\033[01;31m\]'
-green='\[\033[01;32m\]'
-blue='\[\033[01;34m\]'
-uncolor='\[\033[00m\]'
-user_host_dir_branch="${green}\u@\h ${blue}\W${red}\$(current_branch)${uncolor}"
-export PS1="${ruby_node}${lf}[${user_host_dir_branch}]\$ "
+function prompt() {
+  ruby_node='$(current_ruby)\011$(current_node)'
+  lf='\012'
+  red='\[\033[01;31m\]'
+  green='\[\033[01;32m\]'
+  blue='\[\033[01;34m\]'
+  uncolor='\[\033[00m\]'
+  user_host_dir_branch="${green}\u@\h ${blue}\W${red}\$(current_branch)${uncolor}"
+  echo "${ruby_node}${lf}[${user_host_dir_branch}]\$ "
+}
+
+export PS1="$(prompt)"
 
 export COPYFILE_DISABLE
 export COPY_EXTENDED_ATTRIBUTES_DISABLE
