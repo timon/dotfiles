@@ -193,3 +193,5 @@ function! PloverInsert()
 endfunction
 
 nnoremap <C-I> :call PloverInsert()<CR>
+
+set ignorecase smartcase
