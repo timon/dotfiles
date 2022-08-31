@@ -171,6 +171,7 @@ let g:ale_set_loclist = 1
 "
 "let g:ale_javascript_eslint_executable='yarn run eslint'
 "let g:ale_ruby_rubocop_executable='rbenv exec rubocop'
+let g:ale_ruby_rubocop_executable='bundle exec rubocop'
 
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '💩'
