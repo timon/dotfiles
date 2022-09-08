@@ -183,15 +183,4 @@ if filereadable(expand('~/.vimrc.local'))
     source ~/.vimrc.local
 endif
 
-" Plover support
-" Use with the following dictionary entry to leave insert mode and turn Plover
-" off at the same time:
-" "SR*FBG": "{#Escape}{PLOVER:SUSPEND}"
-function! PloverInsert()
-  call system('plover -s plover_send_command resume')
-  startinsert
-endfunction
-
-nnoremap <C-I> :call PloverInsert()<CR>
-
 set ignorecase smartcase
