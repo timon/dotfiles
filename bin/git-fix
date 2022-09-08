@@ -1,22 +1,25 @@
 #!/bin/bash
 
 usage() {
-	echo "Usage: $0 [-h] [-n] [-c commit] [-a|files...]" >&2
+	echo "Usage: $0 [-h] [-n] [-c commit] [-a|-r|files...]" >&2
 	echo "" >&2
 	echo "Options:" >&2
 	echo "  -c commit    Amend to the commit specified (SHA or reference)" >&2
 	echo "  -n           Don't run rebase, just record the intention" >&2
 	echo "  -a           Amend all tracked files in working dir" >&2
+	echo "  -r           No file changes, just reword the commit message" >&2
 }
 
-while getopts "ac:hn" opt
+mode="amend:"
+
+while getopts "ac:hnr" opt
 do
 	case $opt in
 		a)
 			all="-a"
 			;;
 		c)
-			amend=$(git rev-parse ${OPTARG})
+			commit=$(git rev-parse ${OPTARG})
 			;;
 		h)
 			usage
@@ -24,6 +27,10 @@ do
 			;;
 		n)
 			norebase=yes
+			;;
+		r)
+			reword=yes
+			mode="reword:"
 			;;
 		*)
 			echo "invalid option '${opt}'" >&2
@@ -35,11 +42,11 @@ done
 
 shift $((OPTIND - 1))
 
-if [ "${amend}" ]
+if [ "${commit}" ]
 then
-	git commit --fixup=${amend} $all "$@" && \
+	git commit --fixup="${mode}${commit}" $all "$@" && \
 		[ -z "$norebase" ]  && \
-		git rebase -i -r --autosquash "${amend}~" --autostash
+		git rebase -i -r --autosquash "${commit}~" --autostash
 elif [ "$norebase" ]
 then
 	echo "The \`-n' flag is potentially useless without \`-c commit'." >&2
@@ -47,6 +54,9 @@ then
 	echo "" >&2
 	usage
 	exit 1
+elif [ "$reword" ]
+then
+	git commit --amend -o
 else
 	git commit --amend -C HEAD $all "$@"
 fi
