@@ -37,6 +37,7 @@
 "PHEU/RO": "miro",
 "PHEUR/SA": "Mirza",
 "P-R": "PR",
+"WORBG/TPHROE": "workflow",
 "WEB/HAOBG": "webhook",
 "HRO*ER": "{>}",
 "HROUBG": "heroku",
@@ -44,6 +45,7 @@
 "HRU/KASZ": "Łukasz",
 "HRUT/-Z": "Lutz",
 "HRUTS": "Lutz",
+"RA/TKEBG": "Radek",
 "RA/TPAL": "Rafal",
 "R*R": "{^}{#Return}{^}{-|}",
 "REUFBG/PHO*DZ": "riskmethods",
@@ -51,6 +53,7 @@
 "AOPBLG": "Okan",
 "A*UT": "auth",
 "AR/TEPL": "Artem",
+"APB/SKWRA": "Anja",
 "*UR/PWAPB": "Urban",
 "ELT": "ETL"
 }
