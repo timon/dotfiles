@@ -24,6 +24,7 @@ Bundle 'junegunn/fzf.vim'
 Bundle 'aklt/plantuml-syntax'
 Bundle 'weirongxu/plantuml-previewer.vim'
 
+Bundle 'mechatroner/rainbow_csv'
 
 call vundle#end()
 
